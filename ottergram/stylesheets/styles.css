@@ -1,12 +1,9 @@
 @font-face {
-  font-family:  'lakeshore';
+  font-family: 'lakeshore';
   src: url('fonts/LAKESHOR-webfont.eot');
-  src: url('fonts/LAKESHOR-webfont.eof?#iefix') format('embedded-opentype'),
-       url('fonts/LAKESHOR-webfont.woff') format('woff'),
-       url('fonts/Airstream-webfont.ttf') format('truetype'),
-       url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
-     font-style: normal;
-     font-weight: normal;
+  src: url('fonts/LAKESHOR-webfont.eof?#iefix') format('embedded-opentype'), url('fonts/LAKESHOR-webfont.woff') format('woff'), url('fonts/Airstream-webfont.ttf') format('truetype'), url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
+  font-style: normal;
+  font-weight: normal;
 }
 
 html, body {
@@ -20,25 +17,25 @@ body {
   font-size: 20px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.main-header{
-  flex: 01 auto;
+.main-header {
+  flex: 0 1 auto;
 }
 
 .logo-text {
   background: white;
   font-family: lakeshore;
   font-size: 37px;
-  text-align:  center;
-  text-transform:  uppercase;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.main-content{
+.main-content {
   display: flex;
-  flex: 11 auto;
+  flex: 1 1 auto;
   flex-direction: column;
 }
 
@@ -58,7 +55,7 @@ a{
 
 .thumbnail-list {
   display: flex;
-  flex: 01 auto;
+  flex: 0 1 auto;
   justify-content: space-between;
   list-style: none;
   overflow-x: auto;
@@ -67,36 +64,62 @@ a{
   white-space: nowrap;
 }
 
-.thumbnail-item{
-  border:  1px solid rgb(100%, 100%, 100%);
-  border:  1px solid rgba(100%, 100%, 100%, 0.8);
+.thumbnail-item {
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
   display: inline-block;
   max-width: 120px;
   min-width: 120px;
 }
 
-.detail-image-container{
+.detail-image-container {
   align-items: center;
   display: flex;
-  flex: 11 auto;
+  flex: 1 1 auto;
   justify-content: center;
 }
 
-.detail-image-frame{
+.detail-image-frame {
   position: relative;
   text-align: center;
-
 }
 
-.detail-image{
+.detail-image {
   width: 90%;
 }
 
-.detail-image-title{
+.detail-image-title {
   position: absolute;
   bottom: -16px;
   left: 4px;
   color: white;
   font-size: 40px;
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .main-content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .thumbnail-list {
+    flex-direction: column;
+    order: 0;
+    margin-left: 20px;
+  }
+
+  .thumbnail-item {
+    max-width: 260px;
+  }
+
+  .thumbnail-item + .thumbnail-item {
+    margin-top: 20px;
+  }
+}
+
+@media (max-height: 500px) and (min-aspect-ratio: 1/1){
+  .detail-image {
+    width: 68%;
+  }
 }
