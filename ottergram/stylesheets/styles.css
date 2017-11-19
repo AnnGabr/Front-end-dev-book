@@ -9,6 +9,10 @@
      font-weight: normal;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background: rgb(149, 194, 215);
   font-size: 20px;
@@ -42,15 +46,30 @@ a{
 
 .thumbnail-list {
   list-style: none;
+  overflow-x: auto;
   padding: 0;
+  white-space: nowrap;
 }
 
 .thumbnail-item{
   border:  1px solid rgb(100%, 100%, 100%);
   border:  1px solid rgba(100%, 100%, 100%, 0.8);
-  display: block;
+  display: inline-block;
+  width: 120px;
 }
 
 .thumbnail-item + .thumbnail-item{
   margin-top: 10px;
+}
+
+.detail-image-container{
+
+}
+
+.detail-image{
+  width: 90%
+}
+
+.detail-image-title{
+
 }
