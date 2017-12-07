@@ -3,12 +3,15 @@
   var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
   var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
   var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
+  var HIDDEN_DETAIL_CLASS = "hidden-detail";
+  var ESC_KEY =27;
 
   InitListeners();
 
   function InitListeners(){
     var thumbs  = getThumbs();
     thumbs.forEach(addThumbListener);
+    addKeyPressHandler();
   }
 
   function getThumbs(){
@@ -20,7 +23,24 @@
     thumb.addEventListener('click', function (event) {
       event.preventDefault();
       setDetails(getImage(thumb), getTitle(thumb));
+      showDetails();
     });
+  }
+
+  function showDetails(){
+    document.body.classList.remove(HIDDEN_DETAIL_CLASS);
+  }
+
+  function addKeyPressHandler(){
+    document.body.addEventListener('keyup', function (event) {
+      event.preventDefault();
+      if( event.keyCode === ESC_KEY )
+        hideDetails();
+    });
+  }
+
+  function hideDetails(){
+    document.body.classList.add(HIDDEN_DETAIL_CLASS);
   }
 
   function setDetails(image, title){
