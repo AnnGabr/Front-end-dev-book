@@ -89,7 +89,7 @@ a {
 .detail-image-frame {
   position: relative;
   text-align: center;
-  transition: transform 333ms;
+  transition: transform 1000ms cubic-bezier(0,.59,.02,1.05);
 }
 
 .is-tiny {
