@@ -1,7 +1,7 @@
 ;(function(window){
   "use strict"
   var FORM_SELECTOR = '[data-coffee-order="form"]';
-  var COFFEINE_RANGE_SELECTOR = '[data-coffeine-level="strength"]';
+  var COFFEINE_RANGE_SELECTOR = '#strength :input';
 
   var App = window.App;
   var Truck = App.Truck;
@@ -15,5 +15,5 @@
 
   formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
   coffeineRangeHandler.addChangeHandler();
-  console.log(formHandler);
+  console.log(coffeineRangeHandler);
 })(window);

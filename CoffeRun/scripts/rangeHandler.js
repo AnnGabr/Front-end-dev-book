@@ -13,9 +13,11 @@
       }
   }
 
-  RangeHandler.prototype.addChangeHandler = function(fn){
-    this.$rangeElement.on('change', function(){
-      var newValue = this.elements[0].value;
+  RangeHandler.prototype.addChangeHandler = function(fn) {
+    this.$rangeElement.on('change', function(event){
+      event.preventDefault();
+
+      var newValue = this.value;
       switch(newValue){
         case '0': console.log('0');
           break;
@@ -29,7 +31,7 @@
       if(fn)
         fn(newValue);
     });
-  }
+  };
 
   App.RangeHandler = RangeHandler;
   window.App = App;
