@@ -9,6 +9,7 @@
 
   Truck.prototype.createOrder = function (order) {
     this.db.add(order.emailAddress, order);
+    console.log('adding order for ' + order.emailAddress);
   };
 
   Truck.prototype.deliverOrder = function (customerId) {
