@@ -17,8 +17,9 @@
   //var coffeineRangeHandler = new RangeHandler(COFFEINE_RANGE_SELECTOR);
 
   formHandler.addSubmitHandler( function(data){
-    myTruck.createOrder.call(myTruck, data);
-    checkList.addRow.call(checkList, data);
+    myTruck.createOrder(data);
+    checkList.addRow(data);
   });
+  checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
   //coffeineRangeHandler.addChangeHandler();
 })(window);
