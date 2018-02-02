@@ -15,6 +15,11 @@
     }
   }
 
+  CheckList.prototype.addRow = function(coffeeOrder) {
+    var rowElement = new Row(coffeeOrder);
+    this.$element.append(rowElement.$element);
+  }
+
   function Row(coffeeOrder){
       var $div = $('<div></div>', {
         'data-coffee-order': 'checkbox',
@@ -23,7 +28,7 @@
 
       var $label = $('<label></label>');
 
-      var $chackbox = $('<input></input>', {
+      var $checkbox = $('<input></input>', {
         type: 'checkbox',
         value: coffeeOrder.emailAddress});
 
