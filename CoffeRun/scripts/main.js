@@ -10,6 +10,7 @@
   var FormHandler = App.FormHandler;
   //var RangeHandler = App.RangeHandler;
   var CheckList = App.CheckList;
+  var Validation = App.Validation;
 
   var checkList = new CheckList(CHECKLIST_SELECTOR);
   var myTruck = new Truck('ncc-1701', new DataStore());
@@ -20,6 +21,7 @@
     myTruck.createOrder(data);
     checkList.addRow(data);
   });
+  formHandler.addInputHandler(Validation.isCompanyEmail);
   checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
   //coffeineRangeHandler.addChangeHandler();
 })(window);
