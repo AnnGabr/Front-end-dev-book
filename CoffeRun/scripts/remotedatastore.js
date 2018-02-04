@@ -13,10 +13,32 @@
   }
 
   RemoteDataStore.prototype.add = function (key, value) {
-    $.post( this.serverUrl, value, function (serverResponse) {
-
+    var noOrder = true;
+    $.get(this.serverUrl + '/' + key, function(serverResponse) {
+        noOrder = false;
     });
+    if(noOrder) {
+      $.post(this.serverUrl, value, function (serverResponse) {});
+    }
   };
+
+  RemoteDataStore.prototype.getAll = function (cb) {
+    $.get(this.serverUrl, function (serverResponse) {
+      cb(serverResponse);
+    });
+  }
+
+  RemoteDataStore.prototype.get = function (key, cb) {
+    $.get(this.serverUrl + '/' + key, function (serverResponse) {
+      cb(serverResponse);
+    });
+  }
+
+  RemoteDataStore.prototype.remove = function (key) {
+    $.ajax(this.serverUrl + '/' + key, {
+      type: 'DELETE'
+    });
+  }
 
   App.RemoteDataStore = RemoteDataStore;
   window.App = App;
