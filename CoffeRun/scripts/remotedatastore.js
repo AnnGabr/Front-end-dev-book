@@ -13,13 +13,7 @@
   }
 
   RemoteDataStore.prototype.add = function (key, value) {
-    var noOrder = true;
-    $.get(this.serverUrl + '/' + key, function(serverResponse) {
-        noOrder = false;
-    });
-    if(noOrder) {
-      $.post(this.serverUrl, value, function (serverResponse) {});
-    }
+    $.post(this.serverUrl, value, function (serverResponse) {});
   };
 
   RemoteDataStore.prototype.getAll = function (cb) {
